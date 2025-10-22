@@ -65,7 +65,7 @@ Reichstag composition:
 [? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: #FFCC00;">**LVP**</span>: [+ lvp_r +]% ?]
 [? if (not lvp_formed or not ddp_name) : [? if not ddp_name:<span class="tooltip-text" title="German Democratic Party" style="color: #D3C24D;">**DDP**</span>?][? if ddp_name = "DDP":<span class="tooltip-text" title="German Democratic Party" style="color: #D3C24D;">**[+ ddp_name +]**</span>?][? if ddp_name = "DStP":<span class="tooltip-text" title="German State Party" style="color: #D3C24D;">**[+ ddp_name +]**</span>?]: [+ ddp_r +]% ?]
 # 1928: 9, 1930: 5
-[? if not lvp_formed and dvp_exist : <span class="tooltip-text" title="German People's Party" style="color: #C0A054;">**DVP**</span>: [+ dvp_r +]% ?]
+[? if not lvp_formed and dvp_exist : <span class="tooltip-text" title="National Liberal Party" style="color: #98C22C;">**NLP**</span>: [+ dvp_r +]% ?]
 [? if kvp_formed and not dnvp_dvp_formed : <span class="tooltip-text" title="Conservative People's Party" style="color: #0087DC;">**KVP**</span>: [+ kvp_r +]% ?]
 [? if dnvp_dvp_formed: <span class="tooltip-text" title="Free Conserative Party" style="color: #00C0FF;">**FKP**</span>: [+ kvp_r +]% ?]
 # 1928: 14, 1930: 7
@@ -162,7 +162,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: #FFCC00;">**LVP**</span>: [+ lvp_relation : relationships +]?]
 
-[? if not lvp_formed and dvp_exist: <span class="tooltip-text" title="German People's Party" style="color: #C0A054;">**DVP**</span>: [+ dvp_relation : relationships +] ?]
+[? if not lvp_formed and dvp_exist: <span class="tooltip-text" title="National Liberal Party" style="color: #98c22c;">**NLP**</span>: [+ dvp_relation : relationships +] ?]
 
 <span class="tooltip-text" title="Communist Party of Germany" style="color: #700000;">**KPD**</span>: [+ kpd_relation : relationships +]
 
@@ -190,9 +190,9 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if lvp_formed and lvp_dnef: <span class="tooltip-text" title="Liberal People's Party" style="color: #FFCC00;">**LVP**</span>: Liberal Corporatism ([+ lvp_leader +])?]
 
-[? if not ddp_name and not lvp_formed: UNINITIALIZED ?][? if not lvp_formed and dvp_exist and ddp_name != 0 and not dvp_dnef: [? if ddp_name != 0 and dvp_leader != "Thiel" and dvp_leader != "Glatzel": <span class="tooltip-text" title="German People's Party" style="color: #C0A054;">**DVP**</span>: [? if dvp_ideology = "Left": Classical Liberalism ?][? if dvp_ideology = "Moderate": Conservative Liberalism?][? if dvp_ideology = "Right" and (dvp_right - dvp_left < 10 or dvp_leader == "Stresemann"): National Liberalism?][? if dvp_ideology = "Right" and dvp_right - dvp_left >= 10 and dvp_leader != "Stresemann": National Capitalism?] ([+ dvp_leader +])?][? if ddp_name != 0 and (dvp_leader == "Thiel" or dvp_leader == "Glatzel"): <span class="tooltip-text" title="German People's Party" style="color: #C0A054;">**DVP**</span>: Paternalistic Liberalism ([+ dvp_leader +])?]?]
+[? if not ddp_name and not lvp_formed: UNINITIALIZED ?][? if not lvp_formed and dvp_exist and ddp_name != 0 and not dvp_dnef: [? if ddp_name != 0 and dvp_leader != "Thiel" and dvp_leader != "Glatzel": <span class="tooltip-text" title="National Liberal Party" style="color: #98c22c;">**NLP**</span>: [? if dvp_ideology = "Left": Classical Liberalism ?][? if dvp_ideology = "Moderate": Conservative Liberalism?][? if dvp_ideology = "Right" and (dvp_right - dvp_left < 10 or dvp_leader == "Stresemann"): National Liberalism?][? if dvp_ideology = "Right" and dvp_right - dvp_left >= 10 and dvp_leader != "Stresemann": National Capitalism?] ([+ dvp_leader +])?][? if ddp_name != 0 and (dvp_leader == "Thiel" or dvp_leader == "Glatzel"): <span class="tooltip-text" title="National Liberal Party" style="color: #NLP;">**DVP**</span>: Paternalistic Liberalism ([+ dvp_leader +])?]?]
 
-[? if not lvp_formed and dvp_exist and ddp_name != 0 and dvp_dnef: <span class="tooltip-text" title="German People's Party" style="color: #C0A054;">**DVP**</span>: National Liberalism ([+ dvp_leader +])?]
+[? if not lvp_formed and dvp_exist and ddp_name != 0 and dvp_dnef: <span class="tooltip-text" title="German People's Party" style="color: #98c22c;">**NLP**</span>: National Liberalism ([+ dvp_leader +])?]
 
 [? if not ddp_name: UNINITIALIZED ?][? if ddp_name != 0: <span class="tooltip-text" title="Communist Party of Germany" style="color: #700000;">**KPD**</span>: [? if kpd_leader = "Conciliators": United Front Marxism-Leninism?][? if kpd_leader = "Thälmann": Third Period Marxism-Leninism?] ([+ kpd_leader +])?]
 
@@ -222,7 +222,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: #FFCC00;">**LVP**</span>: [? if industrial_lvp_backing == 2: medium?][? if industrial_lvp_backing == 3: high?][? if industrial_lvp_backing == 4: highest?] ?]
 
-[? if not lvp_formed and dvp_exist: <span class="tooltip-text" title="German People's Party" style="color: #C0A054;">**DVP**</span>: [? if industrial_dvp_backing == 1: low?][? if industrial_dvp_backing == 2: medium?][? if industrial_dvp_backing == 3: high?] ?]
+[? if not lvp_formed and dvp_exist: <span class="tooltip-text" title="National Liberal Party" style="color: #98c22c;">**NLP**</span>: [? if industrial_dvp_backing == 1: low?][? if industrial_dvp_backing == 2: medium?][? if industrial_dvp_backing == 3: high?] ?]
 
 [? if not cvp_formed and not dnvp_defunct: <span class="tooltip-text" title="German National People's Party" style="color: #3E88B3;">**DNVP**</span>: [? if industrial_dnvp_backing == 4: highest?][? if industrial_dnvp_backing == 3: high?][? if industrial_dnvp_backing == 2: medium?][? if industrial_dnvp_backing == 1: low?][? if industrial_dnvp_backing == 0: [? if dnvp_ideology == "Moderate": none?][? if dnvp_ideology == "Radical": Hugenberg funded?]?]?]
 
@@ -339,7 +339,7 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 [? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>: [+ lvp_votes +]% ?]
 
-[? if not lvp_formed and dvp_exist: <span style="color: #C0A054;">**DVP**</span>: [+ dvp_votes +]% ?]
+[? if not lvp_formed and dvp_exist: <span style="color: #98c22c;">**NLP**</span>: [+ dvp_votes +]% ?]
 
 [? if kvp_formed and not dnvp_dvp_formed: <span style="color: #0087DC;">**KVP**</span>: [+ kvp_votes +]% ?]
 
